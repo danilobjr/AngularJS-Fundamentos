@@ -1,0 +1,23 @@
+{
+  "name": "AngularJS-Fundamentos",
+  "version": "0.0.0",
+  "homepage": "https://github.com/danilojrr/AngularJS-Fundamentos",
+  "authors": [
+    "Danilo Jr. <danilobjr@gmail.com>"
+  ],
+  "description": "An app developed for AngularJS - Fundamentals course",
+  "main": "app.js",
+  "keywords": [
+    "angularjs",
+    "course"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
