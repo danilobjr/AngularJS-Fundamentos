@@ -13,5 +13,22 @@
     "body-parser": "~1.0.0",
     "debug": "~0.7.4",
     "ejs": "~0.8.5"
-  }
+  },
+  "description": "App developed in AngularJS - Fundamentals course",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danilojrr/AngularJS-Fundamentos.git"
+  },
+  "keywords": [
+    "angularjs",
+    "course"
+  ],
+  "author": "Danilo Jr.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danilojrr/AngularJS-Fundamentos/issues"
+  },
+  "homepage": "https://github.com/danilojrr/AngularJS-Fundamentos"
 }
