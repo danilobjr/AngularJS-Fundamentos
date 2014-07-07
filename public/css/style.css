@@ -1,0 +1,12 @@
+#recursos .imagem-fornecedor {
+    width: 40px;
+    margin-right: 10px;
+}
+
+#recursos .nome-fornecedor {
+    margin: 0 0 3px 0;
+}
+
+#recursos .email-fornecedor {
+    margin-bottom: 0;
+}
