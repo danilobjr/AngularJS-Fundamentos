@@ -8,30 +8,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="/css/bootstrap-custom.css">
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body ng-app='app'>
-        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/teste">AngularJS - Fundamentos</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Alunos</a></li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div>
-        </nav>
+        <div ng-include="'/app/partials/menu/menu.html'"></div>
 
         <div class="container" ng-view></div>
 
@@ -40,6 +22,8 @@
         <script src='/bower_components/angular/angular.min.js'></script>
         <script src='/bower_components/angular-route/angular-route.min.js'></script>
 
+        <script src='/js/init.js'></script>
         <script src='/app/app.js'></script>
+        <script src='/app/aluno/listagem/AlunoListagemController.js'></script>
     </body>
 </html>
