@@ -7,9 +7,9 @@
         // model
 
         $scope.alunos = [
-            { numeroMatricula: 1930970747, nome: 'Aquiteclínio Silvonato Júnior', idade: 19, matriculado: false },
-            { numeroMatricula: 9918746547, nome: 'Clidervânia Sucupira Miriápoles', idade: 18, matriculado: true },
-            { numeroMatricula: 7917476188, nome: 'Biritrudes Abelarda Sombreira', idade: 25, matriculado: true }
+            { matricula: 1930970747, nome: 'Aquiteclínio Silvonato Júnior', idade: 19, estahMatriculado: false },
+            { matricula: 9918746547, nome: 'Clidervânia Sucupira Miriápoles', idade: 18, estahMatriculado: true },
+            { matricula: 7917476188, nome: 'Biritrudes Abelarda Sombreira', idade: 25, estahMatriculado: true }
         ];
 
         // defaults
@@ -27,11 +27,13 @@
         };
 
         $scope.ordenarTabelaPor = function (propriedade) {
-            $scope.ordenarAlunosPor = propriedade;
-
             if ($scope.ordenarAlunosPor === propriedade) {
                 $scope.reverterOrdenacao = !$scope.reverterOrdenacao;
+            } else {
+                $scope.reverterOrdenacao = false;
             }
+
+            $scope.ordenarAlunosPor = propriedade;
         };
 
     }]);
