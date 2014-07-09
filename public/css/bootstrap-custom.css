@@ -279,8 +279,12 @@ a.list-group-item .list-group-item-heading,
     cursor: pointer;
 } */
 
-.form-group {
-    margin-bottom: 18px;
+fieldset {
+    box-shadow: 0 2px 2px rgba(0,0,0,.15);
+}
+
+fieldset > .form-group {
+    margin-bottom: 32px;
 }
 
 .form-group h3 {
@@ -289,7 +293,9 @@ a.list-group-item .list-group-item-heading,
 }
 
 .form-control {
-    background-color: #F9F9F9;
+    background-color: #FdFdFd;
+    border-color: #E4E4E4;
+    border-radius: 3px;
 }
 
 .form-control:focus {
@@ -303,6 +309,29 @@ a.list-group-item .list-group-item-heading,
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
     /* box-shadow: none; */
     border-radius: 3px;
+}
+
+::-webkit-input-placeholder {
+    color: #ccc !important;
+}
+
+:-moz-placeholder {
+    /* FF 4-18 */
+    color: #ccc !important;
+}
+
+::-moz-placeholder {
+    /* FF 19+ */
+    color: #ccc !important;
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #ccc !important;
+}
+
+label {
+    font-size: 16px;
 }
 
 .btn {

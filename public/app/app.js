@@ -12,6 +12,10 @@
                 templateUrl: '/app/aluno/listagem/alunoListagem.html',
                 controller: 'AlunoListagemController'
             })
+            .when('/aluno/novo', {
+                templateUrl: '/app/aluno/novo/alunoNovo.html',
+                controller: 'AlunoNovoController'
+            })
             .otherwise({
                 redirectTo: '/alunos'
             });

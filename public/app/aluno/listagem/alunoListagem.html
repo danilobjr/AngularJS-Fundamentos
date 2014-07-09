@@ -31,7 +31,7 @@
             </span>
         </small>
     </h1>
-    <button class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Novo Aluno</button>
+    <a href='#/aluno/novo' class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Novo Aluno</a>
 </div>
 
 <div class="row">
@@ -40,14 +40,20 @@
             <thead>
                 <tr class='success'>
                     <th class='no-pd-right'><!-- <i class="fa fa-search" data-toggle='tooltip' data-placement='top' title='Buscar'></i> --></th>
-                    <th><span>Matrícula</span></th>
-                    <th><span>Nome</span></th>
-                    <th class='text-center'><span>Idade</span></th>
+                    <th>
+                        <span>Matrícula</span>
+                    </th>
+                    <th>
+                        <span ng-click='ordenarTabelaPor("nome")'>Nome</span>
+                    </th>
+                    <th class='text-center'>
+                        <span ng-click='ordenarTabelaPor("idade")'>Idade</span>
+                    </th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat='aluno in alunos | filter:filtrarAlunosPor'>
+                <tr ng-repeat='aluno in alunos | filter:filtrarAlunosPor | orderBy:ordenarAlunosPor:reverterOrdenacao'>
                     <td class='no-pd-right'>
                         <i class='fa fa-check-circle icone-matriculado' ng-show='aluno.matriculado'
                             data-toggle="tooltip" data-placement="top" title="Matriculado"></i>
