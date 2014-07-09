@@ -1,9 +1,9 @@
-<div class="page-header">
-    <h1>Alunos
+<div class="page-header clearfix">
+    <h1 class='pull-left'>Alunos
         <small>
             <span class="dropdown">
                 <a href='' class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                    filtrar por ({{ filtroAlunosLabel }})
+                    exibir {{ filtroAlunosLabel }}
                     <i class="fa fa-angle-down"></i>
                 </a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -22,33 +22,89 @@
                     </li>
                     <li role="presentation">
                         <a role="menuitem" tabindex="-1" href=''
-                            ng-click="filtrarTabelaPor({ matriculado: false }, 'Não Matriculados')">
+                            ng-click="filtrarTabelaPor({ matriculado: false }, 'Matrículas Pendentes')">
                             <i class="fa fa-exclamation-circle fa-fw fa-lg"></i>
-                            Não Matriculados
+                            Matriculas Pendentes
                         </a>
                     </li>
                 </ul>
             </span>
         </small>
     </h1>
+    <button class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Novo Aluno</button>
 </div>
 
-<table class="table table-hover table-striped table-rounded">
-    <thead>
-        <tr class='success'>
-            <th><i class="fa fa-search" data-toggle='tooltip' data-placement='top' title='Buscar'></i></th>
-            <th>Nome</th>
-            <th>Idade</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat='aluno in alunos | filter:filtrarAlunosPor'>
-            <td>
-                <i class='fa fa-check-circle text-success' ng-show='aluno.matriculado' data-toggle="tooltip" data-placement="top" title="Matriculado"></i>
-                <i class='fa fa-exclamation-circle text-danger' ng-hide='aluno.matriculado' data-toggle="tooltip" data-placement="top" title="Não Matriculado"></i>
-            </td>
-            <td><span>{{ aluno.nome }}</span></td>
-            <td><span>{{ aluno.idade }}</span></td>
-        </tr>
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-hover table-striped table-rounded">
+            <thead>
+                <tr class='success'>
+                    <th class='no-pd-right'><!-- <i class="fa fa-search" data-toggle='tooltip' data-placement='top' title='Buscar'></i> --></th>
+                    <th><span>Matrícula</span></th>
+                    <th><span>Nome</span></th>
+                    <th class='text-center'><span>Idade</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat='aluno in alunos | filter:filtrarAlunosPor'>
+                    <td class='no-pd-right'>
+                        <i class='fa fa-check-circle icone-matriculado' ng-show='aluno.matriculado'
+                            data-toggle="tooltip" data-placement="top" title="Matriculado"></i>
+                        <i class='fa fa-exclamation-circle' ng-hide='aluno.matriculado'
+                            data-toggle="tooltip" data-placement="top" title="Matricula Pendente"></i>
+                    </td>
+                    <td><span>{{ aluno.numeroMatricula }}</span></td>
+                    <td><span>{{ aluno.nome }}</span></td>
+                    <td class='text-center'><span>{{ aluno.idade }}</span></td>
+                    <td class='text-right'>
+                        <div class="dropdown">
+                            <i class="fa fa-gear dropdown-toggle" id='dropdownMenu' data-toggle='dropdown'></i>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu">
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" href="#">
+                                        <i class="fa fa-check-circle fa-lg fa-fw"></i>
+                                        Matricular
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" href="#">
+                                        <i class="fa fa-edit fa-lg fa-fw"></i>
+                                        Editar
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a role="menuitem" tabindex="-1" href="#">
+                                        <i class="fa fa-times-circle fa-lg fa-fw"></i>
+                                        Excluir
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                Resumo
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h3 class="list-group-item-heading">
+                        {{ (alunos | filter:{ matriculado: true }).length }}
+                    </h3>
+                    <p class="list-group-item-text">Matriculados</p>
+                </li>
+                <li class="list-group-item">
+                    <h3 class="list-group-item-heading">
+                        {{ (alunos | filter:{ matriculado: false }).length }}
+                    </h3>
+                    <p class="list-group-item-text">Pendentes</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

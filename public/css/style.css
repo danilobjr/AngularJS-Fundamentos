@@ -1,3 +1,15 @@
-.table-hover > tbody > tr:hover {
-    cursor: pointer;
+.page-header > button {
+    margin-top: 9px;
+}
+
+.table > tbody > tr > td:first-child {
+    width: 39px;
+}
+
+.table > tbody > tr > td:first-child > .fa {
+    cursor: default;
+}
+
+.icone-matriculado {
+    color: #EF7C46 !important;
 }

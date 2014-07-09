@@ -7,9 +7,9 @@
         // model
 
         $scope.alunos = [
-            { nome: 'Aquiteclínio', idade: 25, matriculado: false },
-            { nome: 'Biritrudes', idade: 19, matriculado: true },
-            { nome: 'Clidervânia', idade: 18, matriculado: true }
+            { numeroMatricula: 1930970747, nome: 'Aquiteclínio Silvonato Júnior', idade: 25, matriculado: false },
+            { numeroMatricula: 7917476188, nome: 'Biritrudes Abelarda Sombreira', idade: 19, matriculado: true },
+            { numeroMatricula: 9918746547, nome: 'Clidervânia Sucupira Miriápoles', idade: 18, matriculado: true }
         ];
 
         // defaults
