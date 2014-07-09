@@ -2,7 +2,7 @@
 
 (function() {
 
-    var module = angular.module('app', ['ngRoute']);
+    var module = angular.module('app', ['ngRoute', 'ngAnimate']);
 
     module.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         // $locationProvider.html5Mode(true);
