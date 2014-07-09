@@ -10,6 +10,11 @@
     margin-top: 0;
 }
 
+.table > thead > tr > th > .sortable:hover {
+    color: white;
+    cursor: pointer;
+}
+
 .table > tbody > tr > td:first-child {
     width: 39px;
 }
