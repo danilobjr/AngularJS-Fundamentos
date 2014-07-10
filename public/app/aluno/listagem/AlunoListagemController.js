@@ -2,7 +2,7 @@
 
 (function() {
 
-    angular.module('app').controller('AlunoListagemController', ['$scope', function ($scope) {
+    angular.module('app').controller('AlunoListagemController', ['$scope', 'notificador', function ($scope, notificador) {
 
         // model
 
@@ -36,6 +36,11 @@
             $scope.ordenarAlunosPor = propriedade;
         };
 
+        $scope.excluirAluno = function (aluno) {
+            var index = $scope.alunos.indexOf(aluno);
+            $scope.alunos.splice(index, 1);
+            notificador.sucesso('Aluno "' + aluno.nome + '" removido');
+        };
     }]);
 
 })();
