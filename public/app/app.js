@@ -16,8 +16,8 @@
                 templateUrl: '/app/aluno/novo/alunoNovo.html',
                 controller: 'AlunoNovoController'
             })
-            .when('/aluno/editar/:matriculaAluno', {
-                templateUrl: 'app/aluno/editar/alunoAlterar.html',
+            .when('/aluno/alterar/:matriculaAluno', {
+                templateUrl: 'app/aluno/alterar/alunoAlterar.html',
                 controller: 'AlunoAlterarController'
             })
             .otherwise({
