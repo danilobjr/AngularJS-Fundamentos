@@ -17,8 +17,12 @@
                 controller: 'AlunoNovoController'
             })
             .when('/aluno/alterar/:numeroMatriculaAluno', {
-                templateUrl: 'app/aluno/alterar/alunoAlterar.html',
+                templateUrl: '/app/aluno/alterar/alunoAlterar.html',
                 controller: 'AlunoAlterarController'
+            })
+            .when('/matricula/:numeroMatriculaAluno', {
+                templateUrl: '/app/matricula/matricula.html',
+                controller: 'MatriculaController'
             })
             .otherwise({
                 redirectTo: '/alunos'

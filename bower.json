@@ -26,6 +26,7 @@
     "angular-route": "~1.2.19",
     "font-awesome": "~4.1.0",
     "angular-animate": "~1.2.19",
-    "toastr": "~2.0.3"
+    "toastr": "~2.0.3",
+    "lodash": "~2.4.1"
   }
 }

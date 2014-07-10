@@ -23,8 +23,12 @@
     module.factory('notificador', ['toastr', function (toastr) {
         return {
             sucesso: function (mensagem) {
-                console.log(mensagem);
-                return toastr.success(mensagem);
+                console.log('Sucesso: ' + mensagem);
+                toastr.success(mensagem);
+            },
+            aviso: function (mensagem) {
+                console.log('Aviso: ' + mensagem);
+                toastr.warning(mensagem);
             }
         }
     }]);

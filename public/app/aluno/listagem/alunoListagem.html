@@ -3,7 +3,7 @@
         <small>
             <span class="dropdown">
                 <a href='' class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                    exibir {{ filtroAlunosLabel }}
+                    <span class='text-muted'>exibir</span> {{ filtroAlunosLabel }}
                     <i class="fa fa-angle-down"></i>
                 </a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -80,9 +80,10 @@
                             <i class="fa fa-gear dropdown-toggle" id='dropdownMenu' data-toggle='dropdown'></i>
                             <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu">
                                 <li role="presentation">
-                                    <a role="menuitem" tabindex="-1" href="#">
+                                    <a role="menuitem" tabindex="-1" href="#/matricula/{{ aluno.matricula }}">
                                         <i class="fa fa-check-circle fa-lg fa-fw"></i>
-                                        Matricular
+                                        <span ng-hide='aluno.estahMatriculado'>Matricular</span>
+                                        <span ng-show='aluno.estahMatriculado'>Alterar Dados da Matricula</span>
                                     </a>
                                 </li>
                                 <li role="presentation">

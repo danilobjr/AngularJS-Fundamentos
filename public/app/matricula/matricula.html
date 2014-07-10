@@ -1,0 +1,85 @@
+<div class="page-header clearfix">
+  <h1 class='pull-left'>Matrícula <small>{{ aluno.matricula }}</small></h1>
+  <a href="" class="btn btn-primary btn-lg pull-right" ng-click='matricularAluno()'><i class="fa fa-check"></i> Matricular</a>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-hover table-striped table-rounded">
+            <thead>
+                <tr class='success'>
+                    <!-- <th class='no-pd-right'></th> -->
+                    <th class='col-md-7'>
+                        <span class='sortable' ng-click='ordenarTabelaPor("descricao")'>
+                            Descrição
+                            <span ng-show='ordenarCadeirasPor === "descricao"'>
+                                <i class="fa fa-sort-alpha-asc fa-fw" ng-hide='reverterOrdenacao'></i>
+                                <i class="fa fa-sort-alpha-desc fa-fw" ng-show='reverterOrdenacao'></i>
+                            </span>
+                        </span>
+                    </th>
+                    <th class='col-md-2 text-center'>
+                        <span class='sortable' ng-click='ordenarTabelaPor("creditos")'>
+                            Créditos
+                            <span ng-show='ordenarCadeirasPor === "creditos"'>
+                                <i class="fa fa-sort-numeric-asc fa-fw" ng-hide='reverterOrdenacao'></i>
+                                <i class="fa fa-sort-numeric-desc fa-fw" ng-show='reverterOrdenacao'></i>
+                            </span>
+                        </span>
+                    </th>
+                    <th class='col-md-3 text-right'>
+                        <span class='sortable' ng-click='ordenarTabelaPor("valor")'>
+                            Valor
+                            <span ng-show='ordenarCadeirasPor === "valor"'>
+                                <i class="fa fa-sort-numeric-asc fa-fw" ng-hide='reverterOrdenacao'></i>
+                                <i class="fa fa-sort-numeric-desc fa-fw" ng-show='reverterOrdenacao'></i>
+                            </span>
+                        </span>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class='repeat-animation' ng-repeat='cadeira in cadeirasPendentes = (aluno.grade.cadeiras | filter:{ status: "pendente" }) | orderBy:ordenarCadeirasPor:reverterOrdenacao'>
+                    <td><span>{{ cadeira.descricao }}</span></td>
+                    <td class='text-center'><span>{{ cadeira.creditos }}</span></td>
+                    <td class='text-right'><span>{{ cadeira.valor | currency:'R$ ' }}</span></td>
+                    <td class='text-right'>
+                        <i class="fa fa-plus-circle" data-toggle='tooltip' data-placement='top' title='Incluir' ng-click='incluirCadeira(cadeira)'></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-success">
+            <div class="panel-heading">Totais</div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h3 class="list-group-item-heading">{{ (aluno.grade.cadeiras | filter:{ status: "matriculado" }).length }}</h3>
+                    <p class="list-group-item-text">Cadeiras (máx. 6)</p>
+                </li>
+                <li class="list-group-item">
+                    <h3 class="list-group-item-heading">{{ (aluno.grade.cadeiras | filter:{ status: "matriculado" }) | somarPorPropriedade:'creditos' }}</h3>
+                    <p class="list-group-item-text">Créditos (máx. 20)</p>
+                </li>
+                <li class="list-group-item">
+                    <h3 class="list-group-item-heading">{{ (aluno.grade.cadeiras | filter:{ status: "matriculado" }) | somarPorPropriedade:'valor' | currency:'R$ ' }}</h3>
+                    <p class="list-group-item-text">Mensalidade</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="panel panel-success">
+            <div class="panel-heading">Cadeiras Incluídas</div>
+            <ul class="list-group">
+                <li class="list-group-item"
+                    ng-repeat='cadeira in cadeirasSelecionadas = (aluno.grade.cadeiras | filter:{ status: "matriculado" } | orderBy:"descricao")'>
+                    <h3 class="list-group-item-heading">{{ cadeira.valor | currency:'R$ ' }} <small class='text-muted'>{{ cadeira.creditos }} créditos</small></h3>
+                    <p class="list-group-item-text">{{ cadeira.descricao }}</p>
+                    <i class="fa fa-minus-circle fa-lg pull-right" data-toggle='tooltip' data-placement='top' title='Remover' ng-click='excluirCadeira(cadeira)'></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

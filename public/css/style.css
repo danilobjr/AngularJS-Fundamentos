@@ -2,6 +2,10 @@
     background-color: #73C2BD;
 }
 
+.toast-warning {
+    background-color: #384042;
+}
+
 #toast-container > div {
     opacity: 1;
 }
@@ -29,6 +33,11 @@
 
 .table > tbody > tr > td:first-child > .fa {
     cursor: default;
+}
+
+.list-group-item > .fa {
+    position: relative;
+    top: -52px;
 }
 
 .icone-matriculado {

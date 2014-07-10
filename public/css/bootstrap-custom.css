@@ -8,7 +8,9 @@
     padding-right: 0 !important;
 }
 
-/* colors classes */
+.text-muted {
+    color: #b0b0b0;
+}
 
 .bg-success,
 .table > thead > tr > td.success,
@@ -167,14 +169,17 @@ button:active {
 } */
 
 .table > tbody > tr > td > .fa,
-.table > tbody > tr > td > .dropdown > .fa {
+.table > tbody > tr > td > .dropdown > .fa,
+.list-group-item > .fa {
     margin-top: 8px;
     color: #C5D0D2;
     font-size: 22px;
 }
 
 .table > tbody > tr > td > .fa:hover,
-.dropdown > .fa:hover {
+.dropdown:hover > .fa,
+.list-group-item > .fa:hover {
+    color: #515151 !important;
     cursor: pointer;
 }
 
