@@ -65,7 +65,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat='aluno in alunos | filter:filtrarAlunosPor | orderBy:ordenarAlunosPor:reverterOrdenacao'>
+                <tr class='animated repeat-animation' ng-repeat='aluno in alunos | filter:filtrarAlunosPor | orderBy:ordenarAlunosPor:reverterOrdenacao'>
                     <td class='no-pd-right'>
                         <i class='fa fa-check-circle icone-matriculado' ng-show='aluno.estahMatriculado'
                             data-toggle="tooltip" data-placement="top" title="Matriculado"></i>
@@ -83,7 +83,7 @@
                                     <a role="menuitem" tabindex="-1" href="#/matricula/{{ aluno.matricula }}">
                                         <i class="fa fa-check-circle fa-lg fa-fw"></i>
                                         <span ng-hide='aluno.estahMatriculado'>Matricular</span>
-                                        <span ng-show='aluno.estahMatriculado'>Alterar Dados da Matricula</span>
+                                        <span ng-show='aluno.estahMatriculado'>Alterar Matricula</span>
                                     </a>
                                 </li>
                                 <li role="presentation">
