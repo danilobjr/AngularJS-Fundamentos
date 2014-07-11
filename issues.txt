@@ -1,8 +1,9 @@
 
 # Geral
 
-1. Toaster escuro deve ter cor BLACK, pois a tranparência já deixa o negócio meio grafite
-2. Animações ng-show de mensagens de "vazio" em UL e TABLE
+1. Fazer minhas próprias máscaras de input
+2. Toaster escuro deve ter cor BLACK, pois a tranparência já deixa o negócio meio grafite
+3. Animações ng-show de mensagens de "vazio" em UL e TABLE
 
 # Detalhe
 

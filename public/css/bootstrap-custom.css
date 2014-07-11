@@ -411,6 +411,10 @@ label {
     opacity: 0.6;
 }
 
+a[data-toggle=tooltip] {
+    cursor: pointer;
+}
+
 [data-toggle=tooltip] {
     cursor: default;
 }
