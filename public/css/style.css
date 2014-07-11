@@ -54,3 +54,7 @@ form > fieldset {
     height: 38px;
     font-size: 16px;
 }
+
+#dadosAluno {
+    margin-bottom: 35px;
+}
