@@ -7,7 +7,7 @@
         $scope.aluno = {
             matricula: $routeParams.numeroMatriculaAluno,
             nome: 'Antônio Morrendo das Dores',
-            dataNascimeno: '18/08/1996',
+            dataNascimeno: '18/08/1994',
             email: 'antonio@email.com',
             fone: '(99) 8877-6655',
             estahMatriculado: true,

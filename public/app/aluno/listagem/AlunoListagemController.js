@@ -10,7 +10,9 @@
             {
                 matricula: 1930970747,
                 nome: 'Aquiteclínio Silvonato Júnior',
-                idade: 19,
+                dataNascimeno: '18/08/1994',
+                email: 'antonio@email.com',
+                fone: '(99) 8877-6655',
                 estahMatriculado: false,
                 grade: {
                     periodo: '2014.2',
@@ -37,7 +39,9 @@
             {
                 matricula: 9918746547,
                 nome: 'Clidervânia Sucupira Miriápoles',
-                idade: 18,
+                dataNascimeno: '18/08/1994',
+                email: 'antonio@email.com',
+                fone: '(99) 8877-6655',
                 estahMatriculado: true,
                 grade: {
                     periodo: '2014.2',
@@ -64,7 +68,9 @@
             {
                 matricula: 7917476188,
                 nome: 'Biritrudes Abelarda Sombreira',
-                idade: 25,
+                dataNascimeno: '18/08/1994',
+                email: 'antonio@email.com',
+                fone: '(99) 8877-6655',
                 estahMatriculado: true,
                 grade: {
                     periodo: '2014.2',

@@ -35,9 +35,14 @@
     cursor: default;
 }
 
-.list-group-item > .fa {
+.removerCadeira {
     position: relative;
     top: -52px;
+}
+
+.concluirCadeira {
+    position: relative;
+    top: -28px;
 }
 
 .icone-matriculado {

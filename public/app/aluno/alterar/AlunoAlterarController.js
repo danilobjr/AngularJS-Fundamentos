@@ -9,7 +9,9 @@
         $scope.aluno = {
             matricula: $routeParams.numeroMatriculaAluno,
             nome: 'Aquiteclínio Silvonato Júnior',
-            idade: 19,
+            dataNascimeno: '18/08/1994',
+            email: 'antonio@email.com',
+            fone: '(99) 8877-6655',
             estahMatriculado: false
         };
 

@@ -84,7 +84,7 @@
                     ng-repeat='cadeira in cadeirasSelecionadas = (aluno.grade.cadeiras | filter:{ status: "matriculado" } | orderBy:"descricao")'>
                     <h3 class="list-group-item-heading">{{ cadeira.valor | currency:'R$ ' }} <small class='text-muted'>{{ cadeira.creditos }} créditos</small></h3>
                     <p class="list-group-item-text">{{ cadeira.descricao }}</p>
-                    <i class="fa fa-minus-circle fa-lg pull-right" data-toggle='tooltip' data-placement='top' title='Remover' ng-click='excluirCadeira(cadeira)'></i>
+                    <i class="fa fa-minus-circle fa-lg pull-right removerCadeira" data-toggle='tooltip' data-placement='top' title='Remover' ng-click='excluirCadeira(cadeira)'></i>
                 </li>
             </ul>
         </div>
