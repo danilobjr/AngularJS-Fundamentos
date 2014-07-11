@@ -213,6 +213,10 @@ button:active {
     border: none;
 }
 
+.page-header > .btn {
+    margin-left: 8px;
+}
+
 small, .small {
     font-weight: 700;
     color: #A1AEAE;
@@ -498,10 +502,6 @@ a.list-group-item:focus .list-group-item-text .fa {
 
 .totaisRecursos .list-group-item h4 small {
     margin-top: 4px;
-}
-
-.page-header > .btn {
-    margin-left: 8px;
 }
 
 .cor-confirmado {
