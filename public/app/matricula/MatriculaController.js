@@ -20,7 +20,6 @@
                     { descricao: 'Inglês I', creditos: 2, valor: 58.5, status: 'pendente' },
                     { descricao: 'Inglês II', creditos: 2, valor: 58.5, status: 'pendente' },
                     { descricao: 'Engenharia de Software', creditos: 4, valor: 112.9, status: 'pendente' },
-                    { descricao: 'Cálculo', creditos: 4, valor: 112.9, status: 'pendente' },
                     { descricao: 'Estrutura de Dados', creditos: 4, valor: 112.9, status: 'pendente' },
                     { descricao: 'Interação Humano Computador', creditos: 2, valor: 58.5, status: 'pendente' },
                     { descricao: 'Programação OO', creditos: 4, valor: 112.9, status: 'pendente' },
