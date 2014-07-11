@@ -188,12 +188,14 @@ button:active {
     cursor: pointer;
 }
 
-.dropdown > .dropdown-menu {
+.dropdown > .dropdown-menu,
+.btn-group > .dropdown-menu {
     margin: 8px 0 0;
     background-color: #384042;
 }
 
-.dropdown > .dropdown-menu > li {
+.dropdown > .dropdown-menu > li,
+.btn-group > .dropdown-menu > li {
     text-align: left;
 }
 
@@ -203,7 +205,9 @@ button:active {
 }
 
 .dropdown > .dropdown-menu > li > a:hover,
-.dropdown > .dropdown-menu > li > a:focus {
+.dropdown > .dropdown-menu > li > a:focus,
+.btn-group > .dropdown-menu > li > a:hover,
+.btn-group > .dropdown-menu > li > a:focus {
     cursor: pointer;
     color: #fff;
     background-color: #4D5353;
