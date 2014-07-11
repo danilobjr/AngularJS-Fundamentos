@@ -1,9 +1,24 @@
 <div class="page-header clearfix">
     <h1 class='pull-left'>{{ aluno.nome }} <small>detalhe</small></h1>
-    <a href="#/matricula/{{ aluno.matricula }}" class='btn btn-primary btn-lg pull-right' >
-        <span ng-hide='(aluno.grade.cadeiras | filter:{ status: "cursando" }).length'><i class="fa fa-file"></i> Matricular</span>
-        <span ng-show='(aluno.grade.cadeiras | filter:{ status: "cursando" }).length'><i class="fa fa-pencil"></i> Ajustar Matrícula</span>
-    </a>
+    <div class="btn-group pull-right">
+        <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
+            Ações <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <a href="#/matricula/{{ aluno.matricula }}">
+                    <i class="fa fa-file fa-fw"></i>
+                    <span ng-hide='aluno.estahMatriculado'>Matricular</span>
+                    <span ng-show='aluno.estahMatriculado'>Ajustar Matrícula</span>
+                </a>
+            </li>
+            <li>
+                <a href="#/aluno/alterar/{{ aluno.matricula }}">
+                    <i class="fa fa-pencil fa-fw"></i> Alterar Dados
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
 
 <div class="row">

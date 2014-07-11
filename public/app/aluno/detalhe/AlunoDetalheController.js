@@ -8,6 +8,7 @@
             matricula: $routeParams.numeroMatriculaAluno,
             nome: 'Antônio Morrendo das Dores',
             idade: 19,
+            estahMatriculado: true,
             grade: {
                 periodo: '2014.2',
                 cadeiras:[

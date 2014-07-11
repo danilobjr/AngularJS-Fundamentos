@@ -1,7 +1,8 @@
 <div class="page-header clearfix">
     <h1 class='pull-left'>Matrícula <small>{{ aluno.matricula }}</small></h1>
     <a href="" class="btn btn-primary btn-lg pull-right" ng-click='matricularAluno()'>
-        <i class="fa fa-check"></i> Finalizar Matrícula
+        <span ng-hide='aluno.estahMatriculado'><i class="fa fa-check"></i> Finalizar Matrícula</span>
+        <span ng-show='aluno.estahMatriculado'><i class="fa fa-pencil"></i> Alterar Matrícula</span>
     </a>
 </div>
 
