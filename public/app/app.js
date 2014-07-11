@@ -16,6 +16,10 @@
                 templateUrl: '/app/aluno/novo/alunoNovo.html',
                 controller: 'AlunoNovoController'
             })
+            .when('/aluno/detalhe/:numeroMatriculaAluno', {
+                templateUrl: '/app/aluno/detalhe/detalheAluno.html',
+                controller: 'AlunoDetalheController'
+            })
             .when('/aluno/alterar/:numeroMatriculaAluno', {
                 templateUrl: '/app/aluno/alterar/alunoAlterar.html',
                 controller: 'AlunoAlterarController'

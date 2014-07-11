@@ -1,6 +1,8 @@
 <div class="page-header clearfix">
-  <h1 class='pull-left'>Matrícula <small>{{ aluno.matricula }}</small></h1>
-  <a href="" class="btn btn-primary btn-lg pull-right" ng-click='matricularAluno()'><i class="fa fa-check"></i> Matricular</a>
+    <h1 class='pull-left'>Matrícula <small>{{ aluno.matricula }}</small></h1>
+    <a href="" class="btn btn-primary btn-lg pull-right" ng-click='matricularAluno()'>
+        <i class="fa fa-check"></i> Finalizar Matrícula
+    </a>
 </div>
 
 <div class="row">
@@ -73,6 +75,10 @@
         <div class="panel panel-success">
             <div class="panel-heading">Cadeiras Incluídas</div>
             <ul class="list-group">
+                <li class="list-group-item text-muted"
+                    ng-hide='(aluno.grade.cadeiras | filter:{ status: "matriculado" }).length'>
+                    {{ "As cadeiras escolhidas aparecerão aqui" | uppercase }}
+                </li>
                 <li class="list-group-item animated repeat-animation"
                     ng-repeat='cadeira in cadeirasSelecionadas = (aluno.grade.cadeiras | filter:{ status: "matriculado" } | orderBy:"descricao")'>
                     <h3 class="list-group-item-heading">{{ cadeira.valor | currency:'R$ ' }} <small class='text-muted'>{{ cadeira.creditos }} créditos</small></h3>
