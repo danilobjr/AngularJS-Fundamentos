@@ -1,0 +1,11 @@
+
+# Geral
+
+1. Toaster escuro deve ter cor BLACK, pois a tranparência já deixa o negócio meio grafite
+2. Animações ng-show de mensagens de "vazio" em UL e TABLE
+
+# Detalhe
+
+1. Ajustar layout
+2. Adicionar botões de conclusão das cadeiras em andamento (CURSANDO). Ao atualizar, elas já aparecem no painel CONCLUÍDAS
+3. Colocar mensagens de "vazio" nos painéis
