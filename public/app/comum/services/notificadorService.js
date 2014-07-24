@@ -29,6 +29,10 @@
             aviso: function (mensagem) {
                 console.log('Aviso: ' + mensagem);
                 toastr.warning(mensagem);
+            },
+            erro: function (mensagem, erro) {
+                console.error(erro);
+                toastr.error(mensagem);
             }
         }
     }]);

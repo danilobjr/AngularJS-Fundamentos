@@ -2,99 +2,13 @@
 
 (function() {
 
-    angular.module('app').controller('AlunoListagemController', ['$scope', 'notificador', function ($scope, notificador) {
+    angular.module('app').controller('AlunoListagemController', ['$scope', '$http', 'notificador', function ($scope, $http, notificador) {
 
         // model
 
-        $scope.alunos = [
-            {
-                matricula: 1930970747,
-                nome: 'Aquiteclínio Silvonato Júnior',
-                dataNascimeno: '18/08/1994',
-                email: 'antonio@email.com',
-                fone: '(99) 8877-6655',
-                estahMatriculado: false,
-                grade: {
-                    periodo: '2014.2',
-                    cadeiras:[
-                        { descricao: 'Arquitetura de Computadores', creditos: 4, valor: 112.9, status: 'pendente' },
-                        { descricao: 'Lógica de Programação', creditos: 4, valor: 112.9, status: 'pendente' },
-                        { descricao: 'Matemática Discreta', creditos: 4, valor: 112.9, status: 'pendente' },
-                        { descricao: 'Inglês I', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Inglês II', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Engenharia de Software', creditos: 4, valor: 112.9, status: 'pendente' },
-                        { descricao: 'Estrutura de Dados', creditos: 4, valor: 112.9, status: 'pendente' },
-                        { descricao: 'Interação Humano Computador', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Programação OO', creditos: 4, valor: 112.9, status: 'pendente' },
-                        { descricao: 'Banco de Dados', creditos: 4, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Segurança da Informação', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Empreendedorismo', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Gestão de Equipes', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Economia e Finanças', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Contabilidade', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Laboratório de Hardware', creditos: 2, valor: 58.5, status: 'pendente' }
-                    ]
-                }
-            },
-            {
-                matricula: 9918746547,
-                nome: 'Clidervânia Sucupira Miriápoles',
-                dataNascimeno: '18/08/1994',
-                email: 'antonio@email.com',
-                fone: '(99) 8877-6655',
-                estahMatriculado: true,
-                grade: {
-                    periodo: '2014.2',
-                    cadeiras:[
-                        { descricao: 'Arquitetura de Computadores', creditos: 4, valor: 112.9, status: 'concluido' },
-                        { descricao: 'Lógica de Programação', creditos: 4, valor: 112.9, status: 'concluido' },
-                        { descricao: 'Matemática Discreta', creditos: 4, valor: 112.9, status: 'concluido' },
-                        { descricao: 'Inglês I', creditos: 2, valor: 58.5, status: 'concluido' },
-                        { descricao: 'Inglês II', creditos: 2, valor: 58.5, status: 'cursando' },
-                        { descricao: 'Engenharia de Software', creditos: 4, valor: 112.9, status: 'cursando' },
-                        { descricao: 'Estrutura de Dados', creditos: 4, valor: 112.9, status: 'cursando' },
-                        { descricao: 'Interação Humano Computador', creditos: 2, valor: 58.5, status: 'cursando' },
-                        { descricao: 'Programação OO', creditos: 4, valor: 112.9, status: 'pendente' },
-                        { descricao: 'Banco de Dados', creditos: 4, valor: 58.5, status: 'cursando' },
-                        { descricao: 'Segurança da Informação', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Empreendedorismo', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Gestão de Equipes', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Economia e Finanças', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Contabilidade', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Laboratório de Hardware', creditos: 2, valor: 58.5, status: 'pendente' }
-                    ]
-                }
-            },
-            {
-                matricula: 7917476188,
-                nome: 'Biritrudes Abelarda Sombreira',
-                dataNascimeno: '18/08/1994',
-                email: 'antonio@email.com',
-                fone: '(99) 8877-6655',
-                estahMatriculado: true,
-                grade: {
-                    periodo: '2014.2',
-                    cadeiras:[
-                        { descricao: 'Arquitetura de Computadores', creditos: 4, valor: 112.9, status: 'concluido' },
-                        { descricao: 'Lógica de Programação', creditos: 4, valor: 112.9, status: 'concluido' },
-                        { descricao: 'Matemática Discreta', creditos: 4, valor: 112.9, status: 'concluido' },
-                        { descricao: 'Inglês I', creditos: 2, valor: 58.5, status: 'concluido' },
-                        { descricao: 'Inglês II', creditos: 2, valor: 58.5, status: 'cursando' },
-                        { descricao: 'Engenharia de Software', creditos: 4, valor: 112.9, status: 'cursando' },
-                        { descricao: 'Estrutura de Dados', creditos: 4, valor: 112.9, status: 'cursando' },
-                        { descricao: 'Interação Humano Computador', creditos: 2, valor: 58.5, status: 'cursando' },
-                        { descricao: 'Programação OO', creditos: 4, valor: 112.9, status: 'pendente' },
-                        { descricao: 'Banco de Dados', creditos: 4, valor: 58.5, status: 'cursando' },
-                        { descricao: 'Segurança da Informação', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Empreendedorismo', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Gestão de Equipes', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Economia e Finanças', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Contabilidade', creditos: 2, valor: 58.5, status: 'pendente' },
-                        { descricao: 'Laboratório de Hardware', creditos: 2, valor: 58.5, status: 'pendente' }
-                    ]
-                }
-            }
-        ];
+        $http.get('/api/alunos').success(function (data) {
+            $scope.alunos = data;
+        });
 
         // defaults
 
@@ -120,9 +34,16 @@
         };
 
         $scope.excluirAluno = function (aluno) {
-            var index = $scope.alunos.indexOf(aluno);
-            $scope.alunos.splice(index, 1);
-            notificador.sucesso('Aluno "' + aluno.nome + '" removido');
+            $http.delete('/api/alunos/' + aluno.id)
+                .success(function (data, status, headers, config) {
+                    debugger;
+                    var index = $scope.alunos.indexOf(aluno);
+                    $scope.alunos.splice(index, 1);
+                    notificador.sucesso('Aluno "' + aluno.nome + '" removido');
+                })
+                .error(function (data, status, headers, config) {
+                    notificador.erro('Ocorreu um erro', data);
+                });
         };
     }]);
 
