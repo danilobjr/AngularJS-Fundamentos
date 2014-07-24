@@ -2,12 +2,12 @@
 
 (function() {
 
-    angular.module('app').controller('AlunoListagemController', ['$scope', '$http', 'notificador', function ($scope, $http, notificador) {
+    var AlunoListagemController = function ($scope, alunoListagemService, notificador) {
 
         // model
 
-        $http.get('/api/alunos').success(function (data) {
-            $scope.alunos = data;
+        alunoListagemService.obterTodos().then(function (alunos) {
+            $scope.alunos = alunos;
         });
 
         // defaults
@@ -34,17 +34,17 @@
         };
 
         $scope.excluirAluno = function (aluno) {
-            $http.delete('/api/alunos/' + aluno.id)
-                .success(function (data, status, headers, config) {
-                    debugger;
-                    var index = $scope.alunos.indexOf(aluno);
-                    $scope.alunos.splice(index, 1);
-                    notificador.sucesso('Aluno "' + aluno.nome + '" removido');
-                })
-                .error(function (data, status, headers, config) {
+            alunoListagemService.excluir(aluno).then(
+                function successCallback(data) {
+                    notificador.sucesso('Aluno removido: ' + aluno.nome);
+                },
+                function errorCallback(data) {
                     notificador.erro('Ocorreu um erro', data);
                 });
         };
-    }]);
+    };
+
+    AlunoListagemController.$inject = ['$scope', 'alunoListagemService', 'notificador'];
+    angular.module('app').controller('AlunoListagemController', AlunoListagemController);
 
 })();

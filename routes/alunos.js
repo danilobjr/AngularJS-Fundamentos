@@ -6,17 +6,14 @@ module.exports = function (router) {
         .get(function(req, res, next) {
             Aluno.getList(function (err, alunos) {
                 if (err) { return next(err); }
-
                 res.json(alunos);
             });
         });
 
     router.route('/alunos/:alunoId')
         .delete(function (req, res, next) {
-            Alunos.remove(req.params.alunoId, function (err, alunoRemovido) {
+            Aluno.remove(req.params.alunoId, function (err, alunoRemovido) {
                 if (err) { return next(err); }
-
-                console.log(alunoRemovido);
                 res.json(alunoRemovido);
             });
         });
