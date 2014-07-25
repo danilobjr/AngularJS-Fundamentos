@@ -4,10 +4,10 @@
 
     angular.module('app').controller('AlunoNovoController', ['$scope', function ($scope) {
         $scope.salvarNovoAluno = function () {
+            $scope.$broadcast('show-errors-check-validity');
+
             if ($scope.formNovoAluno.$valid) {
-                alert('Válido!');
-            } else {
-                alert('Inválido :(');
+                console.log($scope.novoAluno);
             }
         };
     }]);
