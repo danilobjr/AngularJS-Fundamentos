@@ -15,7 +15,7 @@
 
                 <div class="form-group" show-errors>
                     <label for="nascimento">Data de Nascimento</label>
-                    <input type="text" class="form-control" id="nascimento" name='dataNascimento' ng-model='novoAluno.dataNascimento'
+                    <input type="text" class="form-control" id="nascimento" name='dataNascimento' ng-model='novoAluno.dataNascimento' alt='date'
                         placeholder="Data de Nascimento" required ng-pattern=/(^(((0[1-9]|[12][0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)/>
                     <span class="help-block" ng-show='formNovoAluno.dataNascimento.$error.required'>Preencha a data de nascimento</span>
                     <span class="help-block" ng-show='formNovoAluno.dataNascimento.$error.pattern'>Data inválida</span>
@@ -31,7 +31,7 @@
 
                 <div class="form-group" show-errors>
                     <label for="fone">Telefone</label>
-                    <input type="text" class="form-control" id="fone" name='fone' ng-model='novoAluno.fone'
+                    <input type="text" class="form-control" id="fone" name='fone' ng-model='novoAluno.fone' alt='phone'
                         placeholder="(99) 9999-9999" required ng-pattern=/(\(\d{2}\))\s(\d{4,5})\-(\d{4})\b/>
                     <span class="help-block" ng-show='formNovoAluno.fone.$error.required'>Preencha o telefone</span>
                     <span class="help-block" ng-show='formNovoAluno.fone.$error.pattern'>Telefone inválido</span>
