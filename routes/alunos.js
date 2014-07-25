@@ -8,6 +8,14 @@ module.exports = function (router) {
                 if (err) { return next(err); }
                 res.json(alunos);
             });
+        })
+        .post(function (req, res, next) {
+            var novoAluno = req.body;
+
+            Aluno.post(novoAluno, function (err, alunoCriado) {
+                if (err) { return next(err); }
+                res.json(novoAluno);
+            });
         });
 
     router.route('/alunos/:alunoId')

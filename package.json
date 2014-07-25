@@ -13,7 +13,8 @@
     "body-parser": "~1.0.0",
     "debug": "~0.7.4",
     "ejs": "~0.8.5",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "moment": "^2.7.0"
   },
   "description": "App developed in AngularJS - Fundamentals course",
   "main": "app.js",
