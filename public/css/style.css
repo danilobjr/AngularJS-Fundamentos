@@ -1,8 +1,9 @@
-.toast-success {
+/* .toast-success {
     background-color: #73C2BD;
-}
+} */
 
-.toast-warning {
+.toast-success, .toast-error,
+.toast-info, .toast-warning {
     background-color: #384042;
 }
 
