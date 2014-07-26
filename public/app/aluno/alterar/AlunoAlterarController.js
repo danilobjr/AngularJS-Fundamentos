@@ -7,7 +7,7 @@
         // aluno em alteração
 
         $scope.aluno = {
-            matricula: $routeParams.numeroMatriculaAluno,
+            matricula: $routeParams.matricula,
             nome: 'Aquiteclínio Silvonato Júnior',
             dataNascimeno: '18/08/1994',
             email: 'antonio@email.com',

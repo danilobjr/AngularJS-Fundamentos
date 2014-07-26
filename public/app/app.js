@@ -16,15 +16,15 @@
                 templateUrl: '/app/aluno/novo/alunoNovo.html',
                 controller: 'AlunoNovoController'
             })
-            .when('/aluno/detalhe/:numeroMatriculaAluno', {
+            .when('/aluno/detalhe/:matricula', {
                 templateUrl: '/app/aluno/detalhe/alunoDetalhe.html',
                 controller: 'AlunoDetalheController'
             })
-            .when('/aluno/alterar/:numeroMatriculaAluno', {
+            .when('/aluno/alterar/:matricula', {
                 templateUrl: '/app/aluno/alterar/alunoAlterar.html',
                 controller: 'AlunoAlterarController'
             })
-            .when('/matricula/:numeroMatriculaAluno', {
+            .when('/matricula/:matricula', {
                 templateUrl: '/app/matricula/matricula.html',
                 controller: 'MatriculaController'
             })

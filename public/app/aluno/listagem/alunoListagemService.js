@@ -20,7 +20,7 @@
         var excluir = function (aluno) {
             var deferred = $q.defer();
 
-            alunoService.excluir(aluno.id)
+            alunoService.excluir(aluno.matricula)
                 .success(function (alunoRemovido) {
                     var index = alunos.indexOf(aluno);
                     alunos.splice(index, 1);

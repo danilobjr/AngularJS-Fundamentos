@@ -7,7 +7,7 @@
         // model
 
         $scope.aluno = {
-            matricula: $routeParams.numeroMatriculaAluno,
+            matricula: $routeParams.matricula,
             nome: 'Fake da Silva',
             idade: 20,
             estahMatriculado: false,
