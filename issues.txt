@@ -10,3 +10,7 @@
 1. Ajustar layout
 2. Adicionar botões de conclusão das cadeiras em andamento (CURSANDO). Ao atualizar, elas já aparecem no painel CONCLUÍDAS
 3. Colocar mensagens de "vazio" nos painéis
+
+# Novo
+
+?? 1. Verificar email existente

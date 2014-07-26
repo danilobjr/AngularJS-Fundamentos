@@ -3,7 +3,7 @@
         <small data-toggle='tooltip' data-placemente='top' title='Número de Matrícula'>{{ aluno.matricula }}</small>
     </h1>
     <div class="btn-group pull-right">
-    <a href="#/matricula/{{ aluno.matricula }}" class='btn btn-primary btn-lg'>
+        <a href="#/matricula/{{ aluno.matricula }}" class='btn btn-primary btn-lg'>
             <i class="fa fa-file fa-fw"></i>
             <span ng-hide='aluno.estahMatriculado'>Matricular</span>
             <span ng-show='aluno.estahMatriculado'>Ajustar Matrícula</span>
@@ -42,9 +42,9 @@
         <p>Telefone</p>
     </div>
     <div class="col-md-3">
-        <h3>{{ aluno.dataNascimeno }}</h3>
+        <h3>{{ aluno.dataNascimento }}</h3>
         <p>Data de Nascimento</p>
-        <h3>{{ aluno.dataNascimeno | calcularIdadeEmAnos }} anos</h3>
+        <h3>{{ aluno.dataNascimento | calcularIdadeEmAnos }} anos</h3>
         <p>Idade</p>
     </div>
     <div class="col-md-3">
@@ -68,6 +68,9 @@
         <div class="panel panel-success">
             <div class="panel-heading">Cursando</div>
             <ul class="list-group">
+                <li class="list-group-item text-muted" ng-hide='aluno.estahMatriculado'>
+                    Não está matriculado
+                </li>
                 <li class="list-group-item" ng-repeat='cadeira in cadeirasEmAndamento = (aluno.grade.cadeiras | filter:{ status: "cursando" })'>
                     <h4 class="list-group-item-heading">{{ cadeira.descricao }} <small class='text-muted'>{{ cadeira.creditos }}</small></h4>
                     <i class="fa fa-check-circle fa-lg pull-right concluirCadeira" data-toggle='tooltip' data-placement='top' title='Concluir'></i>
@@ -79,6 +82,9 @@
         <div class="panel panel-success">
             <div class="panel-heading">Concluídas</div>
             <ul class="list-group">
+                <li class="list-group-item text-muted" ng-hide='(aluno.grade.cadeiras | filter:{ status: "concluido" }).length'>
+                    Não há cadeiras concluídas
+                </li>
                 <li class="list-group-item" ng-repeat='cadeira in cadeirasConcluidas = (aluno.grade.cadeiras | filter:{ status: "concluido" })'>
                     <h4 class="list-group-item-heading">{{ cadeira.descricao }} <small class='text-muted'>{{ cadeira.creditos }}</small></h4>
                 </li>
