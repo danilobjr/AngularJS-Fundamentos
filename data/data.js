@@ -140,13 +140,13 @@ var data = function () {
         }, 0);
     };
 
-    var get = function (id, callback) {
+    var get = function (matricula, callback) {
         setTimeout(function () {
-            var aluno = _.find(alunos, { id: id });
+            var aluno = _.find(alunos, { matricula: matricula });
             var error = undefined;
 
             if (!aluno) {
-                error = new Error('Aluno com id "' + id + '"" não encontrado');
+                error = new Error('Aluno com matricula "' + matricula + '"" não encontrado');
             }
 
             callback(error, aluno);
@@ -188,21 +188,19 @@ var data = function () {
             novoAluno.estahMatriculado = false;
             novoAluno.grade = gerarGradePadrao();
 
-            console.log(novoAluno);
-
             alunos.push(novoAluno);
 
             callback(erro, novoAluno);
         }, 0);
     };
 
-    var remove = function (id, callback) {
+    var remove = function (matricula, callback) {
         setTimeout(function () {
-            var alunoRemovido = _.remove(alunos, { id: id });
+            var alunoRemovido = _.remove(alunos, { matricula: matricula });
             var error = undefined;
 
             if (!alunoRemovido) {
-                error = new Error('Aluno com id "' + id + '"" não encontrado');
+                error = new Error('Aluno com mastricula "' + mastricula + '"" não encontrado');
             }
 
             callback(error, alunoRemovido);
