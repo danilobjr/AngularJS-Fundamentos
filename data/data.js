@@ -26,7 +26,7 @@ var data = function () {
     };
 
     var gerarMatricula = function () {
-        return moment().format('YYYYMMssSSS')
+        return moment().format('YYYYMMssSSS');
     };
 
     var gerarGradePadrao = function () {
