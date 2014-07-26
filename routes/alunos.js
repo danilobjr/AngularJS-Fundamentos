@@ -18,9 +18,16 @@ module.exports = function (router) {
             });
         });
 
-    router.route('/alunos/:alunoId')
+    router.route('/alunos/:matricula')
+        .get(function (req, res, next) {
+            Aluno.get(req.params.matricula, function (err, alunoEncontrado) {
+                if (err) { return next(err); }
+
+                res.json(alunoEncontrado);
+            });
+        })
         .delete(function (req, res, next) {
-            Aluno.remove(req.params.alunoId, function (err, alunoRemovido) {
+            Aluno.remove(req.params.matricula, function (err, alunoRemovido) {
                 if (err) { return next(err); }
                 res.json(alunoRemovido);
             });
