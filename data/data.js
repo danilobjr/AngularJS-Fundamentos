@@ -26,7 +26,14 @@ var data = function () {
     };
 
     var gerarMatricula = function () {
-        return moment().format('YYYYMMssSSS');
+        var periodo = moment().format('YYYYMM');
+        var id = _.uniqueId();
+
+        while (id.length < 6) {
+            id = '0' + id;
+        }
+
+        return periodo + id;
     };
 
     var gerarGradePadrao = function () {
@@ -45,7 +52,7 @@ var data = function () {
             id: _.uniqueId(),
             matricula: gerarMatricula(),
             nome: 'Aquiteclínio Silvonato Júnior',
-            dataNascimeno: '18/08/1994',
+            dataNascimento: '18/08/1994',
             email: 'antonio@email.com',
             fone: '(99) 8877-6655',
             estahMatriculado: false,
@@ -75,7 +82,7 @@ var data = function () {
             id: _.uniqueId(),
             matricula: gerarMatricula(),
             nome: 'Clidervânia Sucupira Miriápoles',
-            dataNascimeno: '18/08/1994',
+            dataNascimento: '18/08/1994',
             email: 'antonio@email.com',
             fone: '(99) 8877-6655',
             estahMatriculado: true,
@@ -105,7 +112,7 @@ var data = function () {
             id: _.uniqueId(),
             matricula: gerarMatricula(),
             nome: 'Biritrudes Abelarda Sombreira',
-            dataNascimeno: '18/08/1994',
+            dataNascimento: '18/08/1994',
             email: 'antonio@email.com',
             fone: '(99) 8877-6655',
             estahMatriculado: true,
