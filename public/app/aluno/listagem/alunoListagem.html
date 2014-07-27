@@ -52,18 +52,14 @@
                             </span>
                         </span>
                     </th>
-                    <!-- <th class='text-center'>
-                        <span class='sortable' ng-click='ordenarTabelaPor("idade")'>
-                            Idade
-                            <span ng-show='ordenarAlunosPor === "idade"'>
-                                <i class="fa fa-sort-numeric-asc fa-fw" ng-hide='reverterOrdenacao'></i>
-                                <i class="fa fa-sort-numeric-desc fa-fw" ng-show='reverterOrdenacao'></i>
-                            </span>
-                        </span>
-                    </th> -->
                     <th></th>
                 </tr>
             </thead>
+            <tbody ng-if='(alunos | filter:filtrarAlunosPor).length < 1'>
+                <tr>
+                    <td class='table-empty' colspan="4">Não há registros</td>
+                </tr>
+            </tbody>
             <tbody>
                 <tr class='animated repeat-animation' ng-repeat='aluno in alunos | filter:filtrarAlunosPor | orderBy:ordenarAlunosPor:reverterOrdenacao'>
                     <td class='no-pd-right'>
@@ -74,7 +70,6 @@
                     </td>
                     <td><span>{{ aluno.matricula }}</span></td>
                     <td><span>{{ aluno.nome }}</span></td>
-                    <!-- <td class='text-center'><span>{{ aluno.idade }}</span></td> -->
                     <td class='text-right'>
                         <div class="dropdown">
                             <i class="fa fa-gear dropdown-toggle" id='dropdownMenu' data-toggle='dropdown'></i>
