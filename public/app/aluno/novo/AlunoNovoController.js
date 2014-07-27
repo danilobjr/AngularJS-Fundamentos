@@ -7,7 +7,7 @@
         $scope.salvarNovoAluno = function () {
             $scope.$broadcast('show-errors-check-validity');
 
-            if ($scope.formNovoAluno.$valid) {
+            if ($scope.formAluno.$valid) {
                 alunoService.cadastrar($scope.novoAluno)
                     .success(function (alunoCadastrado) {
                         console.log('Aluno cadastrado');
