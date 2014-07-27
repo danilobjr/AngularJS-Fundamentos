@@ -2,7 +2,7 @@
 
 (function() {
 
-    angular.module('app').controller('AlunoAlterarController', ['$scope', '$routeParams', '$location', 'alunoService', 'notificador', function ($scope, $routeParams, $location, alunoService, notificador) {
+    angular.module('app').controller('AlunoAlterarController', ['$scope', '$routeParams', '$location', 'alunoAlterarService', 'alunoService', 'notificador', function ($scope, $routeParams, $location, alunoAlterarService, alunoService, notificador) {
 
         alunoService.obter($routeParams.matricula)
             .success(function (alunoObtido) {
@@ -16,13 +16,13 @@
             $scope.$broadcast('show-errors-check-validity');
 
             if ($scope.formAluno.$valid) {
-                alunoService.alterar($scope.aluno)
-                    .success(function (alunoAlterado) {
+                alunoAlterarService.alterar($scope.aluno).then(
+                    function sucessoCallback (alunoAlterado) {
                         console.log('Aluno alterado');
                         console.log(alunoAlterado);
                         $location.url('/aluno/detalhe/' + alunoAlterado.matricula);
-                    })
-                    .error(function (response) {
+                    },
+                    function erroCallback(response) {
                         notificador.erro('Ocorreu um erro. Contate o suporte.', response);
                     });
             }

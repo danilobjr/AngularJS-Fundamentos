@@ -89,10 +89,10 @@ module.exports = function () {
             grade: {
                 periodo: '2014.2',
                 cadeiras:[
-                    { descricao: 'Arquitetura de Computadores', creditos: 4, valor: 112.9, status: 'concluido' },
-                    { descricao: 'Lógica de Programação', creditos: 4, valor: 112.9, status: 'concluido' },
-                    { descricao: 'Matemática Discreta', creditos: 4, valor: 112.9, status: 'concluido' },
-                    { descricao: 'Inglês I', creditos: 2, valor: 58.5, status: 'concluido' },
+                    { descricao: 'Arquitetura de Computadores', creditos: 4, valor: 112.9, status: 'concluida' },
+                    { descricao: 'Lógica de Programação', creditos: 4, valor: 112.9, status: 'concluida' },
+                    { descricao: 'Matemática Discreta', creditos: 4, valor: 112.9, status: 'concluida' },
+                    { descricao: 'Inglês I', creditos: 2, valor: 58.5, status: 'concluida' },
                     { descricao: 'Inglês II', creditos: 2, valor: 58.5, status: 'cursando' },
                     { descricao: 'Engenharia de Software', creditos: 4, valor: 112.9, status: 'cursando' },
                     { descricao: 'Estrutura de Dados', creditos: 4, valor: 112.9, status: 'cursando' },
@@ -119,10 +119,10 @@ module.exports = function () {
             grade: {
                 periodo: '2014.2',
                 cadeiras:[
-                    { descricao: 'Arquitetura de Computadores', creditos: 4, valor: 112.9, status: 'concluido' },
-                    { descricao: 'Lógica de Programação', creditos: 4, valor: 112.9, status: 'concluido' },
-                    { descricao: 'Matemática Discreta', creditos: 4, valor: 112.9, status: 'concluido' },
-                    { descricao: 'Inglês I', creditos: 2, valor: 58.5, status: 'concluido' },
+                    { descricao: 'Arquitetura de Computadores', creditos: 4, valor: 112.9, status: 'concluida' },
+                    { descricao: 'Lógica de Programação', creditos: 4, valor: 112.9, status: 'concluida' },
+                    { descricao: 'Matemática Discreta', creditos: 4, valor: 112.9, status: 'concluida' },
+                    { descricao: 'Inglês I', creditos: 2, valor: 58.5, status: 'concluida' },
                     { descricao: 'Inglês II', creditos: 2, valor: 58.5, status: 'cursando' },
                     { descricao: 'Engenharia de Software', creditos: 4, valor: 112.9, status: 'cursando' },
                     { descricao: 'Estrutura de Dados', creditos: 4, valor: 112.9, status: 'cursando' },
@@ -212,6 +212,7 @@ module.exports = function () {
             aluno.email = alunoAlterado.email;
             aluno.fone = alunoAlterado.fone;
             aluno.estahMatriculado = alunoAlterado.estahMatriculado;
+            aluno.grade = alunoAlterado.grade;
 
             callback(undefined, aluno);
         }, 0);

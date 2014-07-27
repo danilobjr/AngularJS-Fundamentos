@@ -66,7 +66,8 @@
                 </li>
                 <li class="list-group-item" ng-repeat='cadeira in cadeirasEmAndamento = (aluno.grade.cadeiras | filter:{ status: "cursando" })'>
                     <h4 class="list-group-item-heading">{{ cadeira.descricao }} <small class='text-muted'>{{ cadeira.creditos }}</small></h4>
-                    <i class="fa fa-check-circle fa-lg pull-right concluirCadeira" data-toggle='tooltip' data-placement='top' title='Concluir'></i>
+                    <i class="fa fa-check-circle fa-lg pull-right concluirCadeira" ng-click='concluirCadeira(cadeira)'
+                        data-toggle='tooltip' data-placement='top' title='Concluir'></i>
                 </li>
             </ul>
         </div>
@@ -75,10 +76,10 @@
         <div class="panel panel-success">
             <div class="panel-heading">Concluídas</div>
             <ul class="list-group">
-                <li class="list-group-item text-muted" ng-hide='(aluno.grade.cadeiras | filter:{ status: "concluido" }).length'>
+                <li class="list-group-item text-muted" ng-hide='(aluno.grade.cadeiras | filter:{ status: "concluida" }).length'>
                     Não há cadeiras concluídas
                 </li>
-                <li class="list-group-item" ng-repeat='cadeira in cadeirasConcluidas = (aluno.grade.cadeiras | filter:{ status: "concluido" })'>
+                <li class="list-group-item" ng-repeat='cadeira in cadeirasConcluidas = (aluno.grade.cadeiras | filter:{ status: "concluida" })'>
                     <h4 class="list-group-item-heading">{{ cadeira.descricao }} <small class='text-muted'>{{ cadeira.creditos }}</small></h4>
                 </li>
             </ul>
