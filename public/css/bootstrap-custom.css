@@ -129,6 +129,9 @@ button:active {
     border-radius: 0 0 3px 0;
 }
 
+.table-rounded tr:last-child .table-empty {
+    border-radius: 0 0 3px 3px !important;
+}
 
 .table > thead > tr > th,
 .table > tbody > tr > th,
