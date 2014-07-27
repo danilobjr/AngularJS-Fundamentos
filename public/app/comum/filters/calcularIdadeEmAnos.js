@@ -2,7 +2,7 @@
 
 (function() {
 
-    angular.module('app').filter('calcularIdadeEmAnos', function () {
+    angular.module('app').filter('calcularIdadeEmAnos', ['moment', function (moment) {
         return function (dataNascimento) {
             if (dataNascimento) {
                 var data = dataNascimento.split('/');
@@ -17,6 +17,6 @@
                 return hoje.diff(momentoDoNascimento, 'years');
             }
         };
-    });
+    }]);
 
 })();

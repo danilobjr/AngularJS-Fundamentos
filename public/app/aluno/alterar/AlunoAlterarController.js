@@ -2,19 +2,31 @@
 
 (function() {
 
-    angular.module('app').controller('AlunoAlterarController', ['$scope', '$routeParams', function ($scope, $routeParams) {
+    angular.module('app').controller('AlunoAlterarController', ['$scope', '$routeParams', '$location', 'alunoService', 'notificador', function ($scope, $routeParams, $location, alunoService, notificador) {
 
-        // aluno em alteração
+        alunoService.obter($routeParams.matricula)
+            .success(function (alunoObtido) {
+                $scope.aluno = alunoObtido;
+            })
+            .error(function (response) {
+                notificador.erro('Ocorreu um erro. Contate suporte.', response);
+            });
 
-        $scope.aluno = {
-            matricula: $routeParams.matricula,
-            nome: 'Aquiteclínio Silvonato Júnior',
-            dataNascimeno: '18/08/1994',
-            email: 'antonio@email.com',
-            fone: '(99) 8877-6655',
-            estahMatriculado: false
+        $scope.alterarAluno = function () {
+            $scope.$broadcast('show-errors-check-validity');
+
+            if ($scope.formAluno.$valid) {
+                alunoService.alterar($scope.aluno)
+                    .success(function (alunoAlterado) {
+                        console.log('Aluno alterado');
+                        console.log(alunoAlterado);
+                        $location.url('/aluno/detalhe/' + alunoAlterado.matricula);
+                    })
+                    .error(function (response) {
+                        notificador.erro('Ocorreu um erro. Contate o suporte.', response);
+                    });
+            }
         };
-
     }]);
 
 })();

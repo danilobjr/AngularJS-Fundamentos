@@ -1,7 +1,7 @@
 var _ = require('lodash'),
     moment = require('moment');
 
-var data = function () {
+module.exports = function () {
 
     var gradePadrao = {
         // periodo: '2014.2',
@@ -53,7 +53,7 @@ var data = function () {
             matricula: gerarMatricula(),
             nome: 'Aquiteclínio Silvonato Júnior',
             dataNascimento: '18/08/1994',
-            email: 'antonio@email.com',
+            email: 'jr@email.com',
             fone: '(99) 8877-6655',
             estahMatriculado: false,
             grade: {
@@ -83,7 +83,7 @@ var data = function () {
             matricula: gerarMatricula(),
             nome: 'Clidervânia Sucupira Miriápoles',
             dataNascimento: '18/08/1994',
-            email: 'antonio@email.com',
+            email: 'sumi@email.com',
             fone: '(99) 8877-6655',
             estahMatriculado: true,
             grade: {
@@ -113,7 +113,7 @@ var data = function () {
             matricula: gerarMatricula(),
             nome: 'Biritrudes Abelarda Sombreira',
             dataNascimento: '18/08/1994',
-            email: 'antonio@email.com',
+            email: 'biritas@email.com',
             fone: '(99) 8877-6655',
             estahMatriculado: true,
             grade: {
@@ -140,16 +140,16 @@ var data = function () {
         }
     ];
 
-    var getList = function (callback) {
+    var find = function (callback) {
         setTimeout(function () {
             var error = undefined;
             callback(error, alunos);
         }, 0);
     };
 
-    var get = function (matricula, callback) {
+    var findOne = function (query, callback) {
         setTimeout(function () {
-            var aluno = _.find(alunos, { matricula: matricula });
+            var aluno = _.find(alunos, query);
             var error = undefined;
 
             if (!aluno) {
@@ -160,35 +160,32 @@ var data = function () {
         }, 0);
     };
 
-    var post = function (novoAluno, callback) {
+    var validateAluno = function (aluno) {
+        if (!aluno) {
+            return new Error('Objeto aluno é undefined');
+        } else if (!aluno.nome) {
+            return new Error('Nome de aluno não pode ser nulo');
+        } else if (aluno.nome.length < 2) {
+            return new Error('Nome de aluno precisa ter pelo menos 2 caracteres');
+        } else if (!aluno.dataNascimento) {
+            return new Error('Data de nascimento de aluno não pode ser nulo');
+        } else if (!/(^(((0[1-9]|[12][0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)/.test(aluno.dataNascimento)) {
+            return new Error('Data de nascimento de aluno tem formato inválido');
+        } else if (!aluno.fone) {
+            return new Error('Telefone de aluno não pode ser nulo');
+        } else if (!/(\(\d{2}\))\s(\d{4,5})\-(\d{4})\b/.test(aluno.fone)) {
+            return new Error('Telefone de aluno tem formato inválido');
+        }
+
+        return undefined;
+    };
+
+    var create = function (novoAluno, callback) {
         setTimeout(function () {
-            var erro = undefined;
-            if (!novoAluno) {
-                erro = new Error('Objeto aluno é undefined');
-                return callback(erro);
-            } else if (!novoAluno.nome) {
-                erro = new Error('Nome de aluno não pode ser nulo');
-                return callback(erro);
-            } else if (novoAluno.nome.length < 2) {
-                erro = new Error('Nome de aluno precisa ter pelo menos 2 caracteres');
-                return callback(erro);
-            } else if (!novoAluno.dataNascimento) {
-                erro = new Error('Data de nascimento de aluno não pode ser nulo');
-                return callback(erro);
-            } else if (!/(^(((0[1-9]|[12][0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)/.test(novoAluno.dataNascimento)) {
-                erro = new Error('Data de nascimento de aluno tem formato inválido');
-                return callback(erro);
-            } else if (!novoAluno.fone) {
-                erro = new Error('Telefone de aluno não pode ser nulo');
-                return callback(erro);
-            } else if (!/(\(\d{2}\))\s(\d{4,5})\-(\d{4})\b/.test(novoAluno.fone)) {
-                erro = new Error('Telefone de aluno tem formato inválido');
+            var erro = validateAluno(novoAluno);
+            if (erro) {
                 return callback(erro);
             }
-            // } else if (aluno.email.length && /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|”(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*”)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(aluno.email)) {
-            //     var erro = new Error('Email de aluno tem formato inválido');
-            //     return callback(erro);
-            // }
 
             novoAluno.id = _.uniqueId();
             novoAluno.matricula = gerarMatricula();
@@ -197,13 +194,32 @@ var data = function () {
 
             alunos.push(novoAluno);
 
-            callback(erro, novoAluno);
+            callback(undefined, novoAluno);
         }, 0);
     };
 
-    var remove = function (matricula, callback) {
+    var update = function (alunoAlterado, callback) {
         setTimeout(function () {
-            var alunoRemovido = _.remove(alunos, { matricula: matricula });
+            var erro = validateAluno(alunoAlterado);
+            if (erro) {
+                return callback(erro);
+            }
+
+            var aluno = _.find(alunos, { matricula: alunoAlterado.matricula });
+
+            aluno.nome = alunoAlterado.nome;
+            aluno.dataNascimento = alunoAlterado.dataNascimento;
+            aluno.email = alunoAlterado.email;
+            aluno.fone = alunoAlterado.fone;
+            aluno.estahMatriculado = alunoAlterado.estahMatriculado;
+
+            callback(undefined, aluno);
+        }, 0);
+    };
+
+    var remove = function (query, callback) {
+        setTimeout(function () {
+            var alunoRemovido = _.remove(alunos, query);
             var error = undefined;
 
             if (!alunoRemovido) {
@@ -216,13 +232,12 @@ var data = function () {
 
     return {
         alunos: {
-            getList: getList,
-            get: get,
-            post: post,
+            find: find,
+            findOne: findOne,
+            create: create,
+            update: update,
             remove: remove
         }
     };
 
 }();
-
-module.exports = data;

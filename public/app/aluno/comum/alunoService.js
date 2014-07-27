@@ -16,6 +16,10 @@
             return $http.post('/api/alunos', novoAluno);
         };
 
+        var alterar = function (aluno) {
+            return $http.put('/api/alunos/' + aluno.matricula, aluno);
+        };
+
         var excluir = function (matricula) {
             return $http.delete('/api/alunos/' + matricula);
         };
@@ -24,6 +28,7 @@
             obterTodos: obterTodos,
             obter: obter,
             cadastrar: cadastrar,
+            alterar: alterar,
             excluir: excluir
         };
     }]);

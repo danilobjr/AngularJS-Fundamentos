@@ -4,7 +4,7 @@ module.exports = function (router) {
 
     router.route('/alunos')
         .get(function(req, res, next) {
-            Aluno.getList(function (err, alunos) {
+            Aluno.find(function (err, alunos) {
                 if (err) { return next(err); }
                 res.json(alunos);
             });
@@ -12,22 +12,30 @@ module.exports = function (router) {
         .post(function (req, res, next) {
             var novoAluno = req.body;
 
-            Aluno.post(novoAluno, function (err, alunoCriado) {
+            Aluno.create(novoAluno, function (err, alunoCriado) {
                 if (err) { return next(err); }
                 res.json(novoAluno);
             });
         });
 
+
     router.route('/alunos/:matricula')
         .get(function (req, res, next) {
-            Aluno.get(req.params.matricula, function (err, alunoEncontrado) {
+            Aluno.findOne({ matricula: req.params.matricula }, function (err, alunoEncontrado) {
                 if (err) { return next(err); }
 
                 res.json(alunoEncontrado);
             });
         })
+        .put(function (req, res, next) {
+            var alunoComAlteracoes = req.body;
+            Aluno.update(alunoComAlteracoes, function (err, alunoAlterado) {
+                if (err) { return next(err); }
+                res.json(alunoAlterado);
+            });
+        })
         .delete(function (req, res, next) {
-            Aluno.remove(req.params.matricula, function (err, alunoRemovido) {
+            Aluno.remove({ matricula: req.params.matricula }, function (err, alunoRemovido) {
                 if (err) { return next(err); }
                 res.json(alunoRemovido);
             });
