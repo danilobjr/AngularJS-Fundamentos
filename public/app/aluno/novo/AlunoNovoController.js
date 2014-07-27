@@ -12,7 +12,7 @@
                     .success(function (alunoCadastrado) {
                         console.log('Aluno cadastrado');
                         console.log(alunoCadastrado);
-                        $location.url('/aluno/detalhe/' + alunoCriado.matricula);
+                        $location.url('/aluno/detalhe/' + alunoCadastrado.matricula);
                     })
                     .error(function (response) {
                         notificador.erro('Ocorreu um erro. Contate o suporte.', response);
