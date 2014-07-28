@@ -2,7 +2,7 @@
 
 (function() {
 
-    angular.module('app').controller('AlunoDetalheController', ['$scope', '$routeParams', 'alunoService', 'notificador', '_', function ($scope, $routeParams, alunoService, notificador, _) {
+    angular.module('app').controller('AlunoDetalheController', ['$scope', '$routeParams', '$log', 'alunoService', 'notificador', '_', function ($scope, $routeParams, $log, alunoService, notificador, _) {
 
         alunoService.obter($routeParams.matricula)
             .success(function (aluno) {
@@ -20,7 +20,7 @@
 
             alunoService.alterar($scope.aluno)
                 .success(function (alunoAlterado) {
-                    console.log(alunoAlterado);
+                    $log.log(alunoAlterado);
                 })
                 .error(function (response) {
                     notificador.erro('Ocorreu um erro. Contate o suporte.', response);

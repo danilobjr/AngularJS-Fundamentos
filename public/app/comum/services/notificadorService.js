@@ -20,18 +20,18 @@
 
     module.value('toastr', toastr);
 
-    module.factory('notificador', ['toastr', function (toastr) {
+    module.factory('notificador', ['$log', 'toastr', function ($log, toastr) {
         return {
             sucesso: function (mensagem) {
-                console.log('Sucesso: ' + mensagem);
+                $log.log('Sucesso: ' + mensagem);
                 toastr.success(mensagem);
             },
             aviso: function (mensagem) {
-                console.log('Aviso: ' + mensagem);
+                $log.log('Aviso: ' + mensagem);
                 toastr.warning(mensagem);
             },
             erro: function (mensagem, erro) {
-                console.error(erro);
+                $log.error(erro);
                 toastr.error(mensagem);
             }
         }

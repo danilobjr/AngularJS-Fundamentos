@@ -7,27 +7,27 @@
         var alterarAluno = function (alunoAlterado) {
             var deferred = $q.defer();
 
-            alunoService.findOne({ matricula: alunoAlterado.matricula }, function (err, aluno) {
-                if (err) { deferred.reject(err); }
-
-                if (aluno) {
+            alunoService.obter(alunoAlterado.matricula)
+                .success(function (aluno) {
                     aluno.nome = alunoAlterado.nome;
                     aluno.dataNascimento = alunoAlterado.dataNascimento;
                     aluno.email = alunoAlterado.email;
                     aluno.fone = alunoAlterado.fone;
                     aluno.estahMatriculado = alunoAlterado.estahMatriculado;
-                }
 
-                alunoService.alterar(aluno)
-                    .success(function (alunoAlteradoComSucesso) {
-                        deferred.resolve(alunoAlteradoComSucesso);
-                    })
-                    .error(function (response) {
-                        deferred.reject(response);
-                    });
+                    alunoService.alterar(aluno)
+                        .success(function (alunoAlteradoComSucesso) {
+                            deferred.resolve(alunoAlteradoComSucesso);
+                        })
+                        .error(function (response) {
+                            deferred.reject(response);
+                        });
+                })
+                .error(function (response) {
+                    deferred.reject(response);
+                });
 
-                return deferred.promise;
-            });
+            return deferred.promise;
         };
 
         return {

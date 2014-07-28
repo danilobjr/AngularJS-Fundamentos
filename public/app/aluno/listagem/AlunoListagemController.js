@@ -2,7 +2,7 @@
 
 (function() {
 
-    var AlunoListagemController = function ($scope, alunoListagemService, notificador) {
+    var AlunoListagemController = function ($scope, alunoListagemService, notificador, $log) {
 
         // model
 
@@ -36,7 +36,7 @@
         $scope.excluirAluno = function (aluno) {
             alunoListagemService.excluir(aluno).then(
                 function successCallback(data) {
-                    notificador.sucesso('Aluno removido: ' + aluno.nome);
+                    $log.log('Aluno removido: ' + aluno.nome);
                 },
                 function errorCallback(data) {
                     notificador.erro('Ocorreu um erro', data);
@@ -44,7 +44,7 @@
         };
     };
 
-    AlunoListagemController.$inject = ['$scope', 'alunoListagemService', 'notificador'];
+    AlunoListagemController.$inject = ['$scope', 'alunoListagemService', 'notificador', '$log'];
     angular.module('app').controller('AlunoListagemController', AlunoListagemController);
 
 })();
