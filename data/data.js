@@ -153,7 +153,7 @@ module.exports = function () {
             var error = undefined;
 
             if (!aluno) {
-                error = new Error('Aluno com matricula "' + matricula + '"" não encontrado');
+                error = new Error('Aluno com matricula "' + query.matricula + '"" não encontrado');
             }
 
             callback(error, aluno);
