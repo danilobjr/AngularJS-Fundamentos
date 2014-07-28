@@ -62,7 +62,8 @@
             <div class="panel-heading">Cursando</div>
             <ul class="list-group">
                 <li class="list-group-item text-muted" ng-hide='aluno.estahMatriculado'>
-                    Não está matriculado
+                    <!-- serve apenas de demonstração. O ideal é usar CSS para deixar tudo maiúsculo -->
+                    {{ 'Não está matriculado' | uppercase }}
                 </li>
                 <li class="list-group-item" ng-repeat='cadeira in cadeirasEmAndamento = (aluno.grade.cadeiras | filter:{ status: "cursando" })'>
                     <h4 class="list-group-item-heading">{{ cadeira.descricao }} <small class='text-muted'>{{ cadeira.creditos }}</small></h4>
@@ -77,7 +78,8 @@
             <div class="panel-heading">Concluídas</div>
             <ul class="list-group">
                 <li class="list-group-item text-muted" ng-hide='(aluno.grade.cadeiras | filter:{ status: "concluida" }).length'>
-                    Não há cadeiras concluídas
+                    <!-- serve apenas de demonstração. O ideal é usar CSS para deixar tudo maiúsculo -->
+                    {{ 'Não há cadeiras concluídas' | uppercase }}
                 </li>
                 <li class="list-group-item" ng-repeat='cadeira in cadeirasConcluidas = (aluno.grade.cadeiras | filter:{ status: "concluida" })'>
                     <h4 class="list-group-item-heading">{{ cadeira.descricao }} <small class='text-muted'>{{ cadeira.creditos }}</small></h4>
