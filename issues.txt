@@ -14,3 +14,8 @@
 # Novo
 
 ?? 1. Verificar email existente
+
+# Matrícula
+
+1. Mostrar no painel esquerdo somente as cadeiras pendentes. "FALTA CURSAR"
+2. Ao gerar boleto, desabilitar botões de inclusão e remoção de cadeiras. Só será possível concluir o semestre em Aluno Detalhes
