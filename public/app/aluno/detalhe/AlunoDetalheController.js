@@ -23,7 +23,7 @@
                     $log.log(alunoAlterado);
                 })
                 .error(function (response) {
-                    notificador.erro('Ocorreu um erro. Alteração não realizada.', response);
+                    notificador.erro('Não foi possível realizar alteração', response);
                 });
         };
 
