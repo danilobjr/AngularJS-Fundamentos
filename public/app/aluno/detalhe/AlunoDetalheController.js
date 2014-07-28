@@ -23,7 +23,7 @@
                     $log.log(alunoAlterado);
                 })
                 .error(function (response) {
-                    notificador.erro('Ocorreu um erro. Contate o suporte.', response);
+                    notificador.erro('Ocorreu um erro. Alteração não realizada.', response);
                 });
         };
 
