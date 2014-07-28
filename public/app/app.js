@@ -26,7 +26,7 @@
             })
             .when('/matricula/:matricula', {
                 templateUrl: '/app/matricula/matricula.html',
-                controller: 'MatriculaController'
+                controller: 'MatriculaRealizarController'
             })
             .otherwise({
                 redirectTo: '/alunos'

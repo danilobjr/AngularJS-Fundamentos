@@ -4,6 +4,13 @@
 1. Fazer minhas próprias máscaras de input
 2. Toaster escuro deve ter cor BLACK, pois a tranparência já deixa o negócio meio grafite
 3. Animações ng-show de mensagens de "vazio" em UL e TABLE
+4. Padronizar o estilo das mensagens empty record das tabelas e painéis
+5. Rever IIFEs
+6. Talvez usar o $inject ao invés de colchetes
+
+# Listagem
+
+1. Ícone para identificar aluno que concluiu o curso
 
 # Detalhe
 
@@ -19,3 +26,5 @@
 
 1. Mostrar no painel esquerdo somente as cadeiras pendentes. "FALTA CURSAR"
 2. Ao gerar boleto, desabilitar botões de inclusão e remoção de cadeiras. Só será possível concluir o semestre em Aluno Detalhes
+3. Se o aluno já concluíu o curso, que isso esteja claro quando o aluno entrar na tela
+4. Não deixar matriculaService ser statefull. Que o aluno seja passado via parâmetro nos métodos

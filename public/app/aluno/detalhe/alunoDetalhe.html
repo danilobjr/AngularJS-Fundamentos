@@ -3,18 +3,18 @@
         <small data-toggle='tooltip' data-placemente='top' title='Número de Matrícula'>{{ aluno.matricula }}</small>
     </h1>
     <div class="btn-group pull-right">
-        <a href="#/matricula/{{ aluno.matricula }}" class='btn btn-primary btn-lg'>
-            <i class="fa fa-file fa-fw"></i>
-            <span ng-hide='aluno.estahMatriculado'>Matricular</span>
-            <span ng-show='aluno.estahMatriculado'>Alterar Matrícula</span>
+        <a href="#/aluno/alterar/{{ aluno.matricula }}" class='btn btn-primary btn-lg'>
+            <i class="fa fa-pencil fa-fw"></i> Alterar Dados
         </a>
         <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
             <li>
-                <a href="#/aluno/alterar/{{ aluno.matricula }}">
-                    <i class="fa fa-pencil fa-fw"></i> Alterar Dados
+                <a href="#/matricula/{{ aluno.matricula }}">
+                    <i class="fa fa-file fa-fw"></i>
+                    <span ng-hide='aluno.estahMatriculado'>Matricular</span>
+                    <span ng-show='aluno.estahMatriculado'>Alterar Matrícula</span>
                 </a>
             </li>
         </ul>
@@ -51,6 +51,10 @@
         <div class="panel panel-success">
             <div class="panel-heading">Falta Cursar</div>
             <ul class="list-group">
+                <li class="list-group-item text-muted" ng-hide='(aluno.grade.cadeiras | filter:{ status: "pendente" }).length'>
+                    <!-- serve apenas de demonstração. O ideal é usar CSS para deixar tudo maiúsculo -->
+                    {{ 'Não há mais cadeiras pendentes' | uppercase }}
+                </li>
                 <li class="list-group-item" ng-repeat='cadeira in cadeirasPentendes = (aluno.grade.cadeiras | filter:{ status: "pendente" })'>
                     <h4 class="list-group-item-heading">{{ cadeira.descricao }} <small class='text-muted'>{{ cadeira.creditos }}</small></h4>
                 </li>
@@ -63,7 +67,7 @@
             <ul class="list-group">
                 <li class="list-group-item text-muted" ng-hide='aluno.estahMatriculado'>
                     <!-- serve apenas de demonstração. O ideal é usar CSS para deixar tudo maiúsculo -->
-                    {{ 'Não está matriculado' | uppercase }}
+                    {{ 'Não há cadeiras a cursar' | uppercase }}
                 </li>
                 <li class="list-group-item" ng-repeat='cadeira in cadeirasEmAndamento = (aluno.grade.cadeiras | filter:{ status: "cursando" })'>
                     <h4 class="list-group-item-heading">{{ cadeira.descricao }} <small class='text-muted'>{{ cadeira.creditos }}</small></h4>
